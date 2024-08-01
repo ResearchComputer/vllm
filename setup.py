@@ -408,7 +408,7 @@ def get_requirements() -> List[str]:
         return resolved_requirements
 
     if _is_cuda():
-        requirements = _read_requirements("requirements-cuda.txt")
+        requirements = _read_requirements("requirements-cuda-gh200.txt")
         cuda_major, cuda_minor = torch.version.cuda.split(".")
         modified_requirements = []
         for req in requirements:
