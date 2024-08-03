@@ -412,10 +412,7 @@ def get_requirements() -> List[str]:
         cuda_major, cuda_minor = torch.version.cuda.split(".")
         modified_requirements = []
         for req in requirements:
-            if ("vllm-flash-attn" in req
-                    and not (cuda_major == "12" and cuda_minor == "1")):
-                # vllm-flash-attn is built only for CUDA 12.1.
-                # Skip for other versions.
+            if ("flash-attn" in req):
                 continue
             modified_requirements.append(req)
         requirements = modified_requirements
